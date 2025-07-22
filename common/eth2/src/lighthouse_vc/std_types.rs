@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use types::{Address, Graffiti, PublicKeyBytes};
 use zeroize::Zeroizing;
 
+#[cfg(feature = "slashing_protection")]
 pub use slashing_protection::interchange::Interchange;
 
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
@@ -37,6 +38,7 @@ pub struct SingleKeystoreResponse {
     pub readonly: Option<bool>,
 }
 
+#[cfg(feature = "slashing_protection")]
 #[derive(Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ImportKeystoresRequest {
@@ -56,6 +58,7 @@ impl std::ops::Deref for KeystoreJsonStr {
     }
 }
 
+#[cfg(feature = "slashing_protection")]
 #[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
 #[serde(transparent)]
 pub struct InterchangeJsonStr(#[serde(with = "serde_utils::json_str")] pub Interchange);
@@ -102,6 +105,7 @@ pub struct DeleteKeystoresRequest {
     pub pubkeys: Vec<PublicKeyBytes>,
 }
 
+#[cfg(feature = "slashing_protection")]
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DeleteKeystoresResponse {
     pub data: Vec<Status<DeleteKeystoreStatus>>,

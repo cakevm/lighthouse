@@ -177,6 +177,7 @@ pub struct VoluntaryExitQuery {
     pub epoch: Option<Epoch>,
 }
 
+#[cfg(feature = "slashing_protection")]
 #[derive(Deserialize, Serialize)]
 pub struct ExportKeystoresResponse {
     pub data: Vec<SingleExportKeystoresResponse>,

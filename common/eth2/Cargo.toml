@@ -5,8 +5,9 @@ authors = ["Paul Hauner <paul@paulhauner.com>"]
 edition = { workspace = true }
 
 [features]
-default = ["lighthouse"]
+default = ["lighthouse", "slashing_protection"]
 lighthouse = []
+slashing_protection = ["dep:slashing_protection"]
 
 [dependencies]
 derivative = { workspace = true }
@@ -29,7 +30,7 @@ reqwest-eventsource = "0.5.0"
 sensitive_url = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
-slashing_protection = { workspace = true }
+slashing_protection = { workspace = true, optional = true }
 ssz_types = { workspace = true }
 test_random_derive = { path = "../../common/test_random_derive" }
 types = { workspace = true }
@@ -37,3 +38,4 @@ zeroize = { workspace = true }
 
 [dev-dependencies]
 tokio = { workspace = true }
+

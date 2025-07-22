@@ -446,6 +446,7 @@ impl ValidatorClientHttpClient {
         .await
     }
 
+    #[cfg(feature = "slashing_protection")]
     /// `DELETE eth/v1/keystores`
     pub async fn delete_lighthouse_keystores(
         &self,
@@ -533,6 +534,7 @@ impl ValidatorClientHttpClient {
         self.get_unsigned(url).await
     }
 
+    #[cfg(feature = "slashing_protection")]
     /// `POST eth/v1/keystores`
     pub async fn post_keystores(
         &self,
@@ -542,6 +544,7 @@ impl ValidatorClientHttpClient {
         self.post_with_unsigned_response(url, req).await
     }
 
+    #[cfg(feature = "slashing_protection")]
     /// `DELETE eth/v1/keystores`
     pub async fn delete_keystores(
         &self,
