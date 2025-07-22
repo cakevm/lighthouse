@@ -33,7 +33,7 @@ serde_json = { workspace = true }
 slashing_protection = { workspace = true, optional = true }
 ssz_types = { workspace = true }
 test_random_derive = { path = "../../common/test_random_derive" }
-types = { workspace = true }
+types = { workspace = true, default-features = false }
 zeroize = { workspace = true }
 
 [dev-dependencies]
